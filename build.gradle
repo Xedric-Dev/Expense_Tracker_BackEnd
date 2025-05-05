@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+    id("org.springframework.boot") version "3.4.4"
+    id "io.spring.dependency-management" version "1.1.6"
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    //H2 Database
+    runtimeOnly 'com.h2database:h2'
+
+    //SpringBoot Starter Data JPA
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.4.4'
+
+    //PostgreSQL Database
+    implementation 'org.postgresql:postgresql'
+
+    //SpringBoot Starter Security
+    implementation 'org.springframework.boot:spring-boot-starter-security:3.4.4'
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.4.4'
+
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly 'org.projectlombok:lombok:1.18.38'
+    annotationProcessor 'org.projectlombok:lombok:1.18.38'
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.3'
+
+    //JWT
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,22 @@
+server:
+  port: 8080 # Set the port of tour SpringBoot App
+
+spring:
+  profiles:
+    active:
+  datasource:
+    url: jdbc:postgresql://ep-shiny-snow-a2z85me6-pooler.eu-central-1.aws.neon.tech/expensesdb?sslmode=require
+    driver-class-name: org.postgresql.Driver # The JBDC Driver for H2
+    username: neondb_owner
+    password: npg_jBnxSkHDu24b
+    platform: h2
+
+  h2:
+    console:
+      enabled: true
+
+  jpa :
+    hibernate:
+      ddl-auto: update # Automatically set or update the Db tables based on the entities
+    show-sql:  true # Enables the use of Query by the JPA methods
+    database-platform: org.hibernate.dialect.PostgreSQLDialect #Usa la sintassi giusta per il tipo di database usato
